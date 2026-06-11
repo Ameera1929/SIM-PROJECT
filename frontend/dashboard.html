@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM Dashboard</title>
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<div class="products-panel">
+
+
+<h2 id="welcome">
+    Welcome
+</h2>
+
+<div class="dashboard-menu">
+
+    <button class="submit-button"
+            onclick="location.href='products.html'">
+        <i class="fa-solid fa-box"></i>
+        Products
+    </button>
+
+    <br><br>
+
+    <button
+    id="usersBtn"
+    class="submit-button"
+    onclick="location.href='users.html'">
+
+    Users Management
+
+    </button>
+
+    <br><br>
+
+    <button class="submit-button">
+        <i class="fa-solid fa-chart-line"></i>
+        Reports
+    </button>
+
+    <br><br>
+
+    <button class="submit-button">
+        <i class="fa-solid fa-gear"></i>
+        Settings
+    </button>
+
+    <br><br>
+
+    <button class="submit-button"
+            onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </button>
+
+</div>
+<div class="dashboard-stats">
+
+    <div class="stat-card">
+        <h3>Total Products</h3>
+        <h1 id="totalProducts">0</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Total Stock</h3>
+        <h1 id="totalStock">0</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Low Stock</h3>
+        <h1 id="lowStock">0</h1>
+    </div>
+
+</div>
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

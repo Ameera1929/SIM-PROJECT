@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<div class="credentials-panel otp">
+    <h2>Verify OTP</h2>
+
+    <form id="otpForm">
+        <div class="field-wrapper">
+            <input type="text" id="otp" required>
+            <label>Enter OTP</label>
+            <i class="fa-solid fa-key"></i>
+        </div>
+
+        <div class="field-wrapper">
+            <button type="submit" class="submit-button">
+                Verify OTP
+            </button>
+        </div>
+
+        <p id="message"></p>
+    </form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

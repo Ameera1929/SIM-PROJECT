@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="products-panel">
+
+    <div class="products-header">
+
+        <h2>Users Management</h2>
+
+        <button
+            id="showUserFormBtn"
+            class="submit-button"
+            type="button">
+
+            + Add User
+
+        </button>
+
+    </div>
+
+    <div
+        id="userFormContainer"
+        style="display:none; margin-top:30px;">
+
+        <form id="userForm">
+
+            <input
+                type="hidden"
+                id="editUserId">
+
+            <div class="field-wrapper">
+                <input
+                    type="text"
+                    id="username"
+                    required>
+                <label>Username</label>
+            </div>
+
+            <div class="field-wrapper">
+                <input
+                    type="email"
+                    id="email"
+                    required>
+                <label>Email</label>
+            </div>
+
+            <br>
+
+            <select
+                id="role"
+                style="
+                    width:100%;
+                    padding:12px;
+                    background:#1a1a2e;
+                    color:white;
+                    border:1px solid #00d4ff;
+                    border-radius:8px;
+                ">
+
+                <option value="customer_user">
+                    Customer User
+                </option>
+
+                <option value="customer_admin">
+                    Customer Admin
+                </option>
+
+                <option value="super_admin">
+                    Super Admin
+                </option>
+
+            </select>
+
+            <br><br>
+
+            <button
+                class="submit-button"
+                type="submit">
+
+                Save User
+
+            </button>
+
+        </form>
+
+        <hr style="margin:30px 0;border-color:#00d4ff;">
+
+    </div>
+
+    <h3 style="margin-bottom:20px;">
+        Users List
+    </h3>
+
+    <!-- SEARCH USER -->
+
+    <input
+        type="text"
+        id="searchUser"
+        placeholder="Search User..."
+        style="
+            width:100%;
+            padding:12px;
+            margin-bottom:20px;
+            background:#1a1a2e;
+            color:white;
+            border:1px solid #00d4ff;
+            border-radius:8px;
+        ">
+
+    <div class="table-container">
+
+        <table id="usersTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="userList">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <br>
+
+    <button
+        class="submit-button"
+        onclick="location.href='dashboard.html'">
+
+        Back To Dashboard
+
+    </button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

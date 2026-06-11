@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Management</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+<div class="products-panel">
+
+
+<div class="products-header">
+
+    <h2>Products Management</h2>
+
+    <button
+        id="showFormBtn"
+        class="submit-button"
+        type="button">
+
+        + Add Product
+
+    </button>
+
+</div>
+
+<div
+    id="productFormContainer"
+    style="display:none; margin-top:30px;">
+
+    <form id="productForm">
+
+        <div class="field-wrapper">
+            <input type="hidden" id="editId">
+            <input type="text" id="name" required>
+            <label>Product Name</label>
+        </div>
+
+        <div class="field-wrapper">
+            <input type="text" id="sku" required>
+            <label>SKU</label>
+        </div>
+
+        <div class="field-wrapper">
+            <input type="text" id="category" required>
+            <label>Category</label>
+        </div>
+
+        <div class="field-wrapper">
+            <input type="number" id="price" required>
+            <label>Price</label>
+        </div>
+
+        <div class="field-wrapper">
+            <input type="number" id="quantity" required>
+            <label>Quantity</label>
+        </div>
+
+        <div class="field-wrapper">
+            <input type="text" id="description" required>
+            <label>Description</label>
+        </div>
+
+        <br>
+
+        <button
+            class="submit-button"
+            type="submit">
+
+            Save Product
+
+        </button>
+
+    
+
+    </form>
+
+    <hr style="margin:30px 0;border-color:#00d4ff;">
+</div>
+
+<div style="margin-bottom:20px;">
+
+    <input
+        type="text"
+        id="searchProduct"
+        placeholder="Search Product..."
+        style="
+        width:100%;
+        padding:12px;
+        border:2px solid #00d4ff;
+        border-radius:10px;
+        background:transparent;
+        color:white;
+        outline:none;
+        ">
+
+</div>
+
+<h3 style="margin-bottom:20px;">
+    Product List
+</h3>
+
+<div class="table-container">
+
+    <table id="productsTable">
+
+        <thead>
+
+            <tr>
+                <th>Name</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="productList">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<br>
+
+<button
+    class="submit-button"
+    onclick="location.href='dashboard.html'">
+  
+    Back To Dashboard
+  
+   
+  
+</button>
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
