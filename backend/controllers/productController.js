@@ -133,17 +133,17 @@ exports.updateProduct = async (req, res) => {
 
         const { id } = req.params;
 
+        const updatedData = {
+            ...req.body,
+            updatedBy: req.user.username,
+            updatedAt: new Date()
+        };
+
         const product =
-        await Product.findOneAndUpdate(
-            {
-                _id:id,
-                customerId:req.user.customerId,
-                isActive:true
-            },
-            req.body,
-            {
-                new:true
-            }
+        await Product.findByIdAndUpdate(
+            id,
+            updatedData,
+            { new: true }
         );
 
         if(!product){

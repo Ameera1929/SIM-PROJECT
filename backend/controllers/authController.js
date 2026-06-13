@@ -207,7 +207,8 @@ exports.login = async (req, res) => {
             {
                 id: user._id,
                 username: user.username,
-                role: user.role
+                role: user.role,
+                customerId: user.customerId
             },
             process.env.JWT_SECRET,
             {
@@ -223,7 +224,8 @@ exports.login = async (req, res) => {
                 id: user._id,
                 username: user.username,
                 email: user.email,
-                role: user.role
+                role: user.role,
+                customerId: user.customerId
             }
         });
 
@@ -370,3 +372,4 @@ exports.createUser = async (req, res) => {
     }
 
 };
+

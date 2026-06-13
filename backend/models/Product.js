@@ -33,6 +33,16 @@ description: {
     type: String
 },
 
+updatedBy: {
+    type: String,
+    default: null
+},
+
+updatedAt: {
+    type: Date,
+    default: null
+},
+
 customerId: {
     type: String,
     default: null
