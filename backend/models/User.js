@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema(
         default: "customer_user"
     },
 
+    customerId: {
+        type: String,
+        default: null
+    },
+
     isActive: {
         type: Boolean,
         default: false

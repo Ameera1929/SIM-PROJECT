@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 
 const sendOtp = async (email, otp) => {
@@ -36,3 +37,46 @@ const sendOtp = async (email, otp) => {
 };
 
 module.exports = sendOtp;
+const userSchema = new mongoose.Schema(
+    {
+        username: {
+            type: String,
+            required: true,
+            unique: true
+        },
+
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+
+        password: {
+            type: String
+        },
+
+        role: {
+            type: String,
+            enum: ["super_admin", "customer_admin", "customer_user"],
+            default: "customer_user"
+        },
+
+        customerId: {
+            type: String,
+            default: null
+        },
+
+        isActive: {
+            type: Boolean,
+            default: false
+        },
+
+        otpVerified: {
+            type: Boolean,
+            default: false
+        }
+    },
+    {
+        timestamps: true
+    });
+exports.userSchema = userSchema;

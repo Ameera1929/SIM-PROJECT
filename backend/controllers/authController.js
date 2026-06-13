@@ -322,6 +322,7 @@ exports.createUser = async (req, res) => {
         const {
             username,
             email,
+            password,
             role
         } = req.body;
 
@@ -336,29 +337,34 @@ exports.createUser = async (req, res) => {
         if(existingUser){
 
             return res.status(400).json({
-                success:false,
-                message:"User already exists"
+                success: false,
+                message: "User already exists"
             });
 
         }
+
+        const hashedPassword =
+        await bcrypt.hash(password, 10);
 
         const user =
         await User.create({
             username,
             email,
+            password: hashedPassword,
             role
         });
 
         res.status(201).json({
-            success:true,
+            success: true,
+            message: "User created successfully",
             user
         });
 
     } catch(error){
 
         res.status(500).json({
-            success:false,
-            message:error.message
+            success: false,
+            message: error.message
         });
 
     }
