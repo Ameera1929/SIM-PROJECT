@@ -12,6 +12,7 @@ try {
         price,
         quantity,
         description
+
     } = req.body;
 
     const product =
@@ -21,7 +22,9 @@ try {
             category,
             price,
             quantity,
-            description
+            description,
+            customerId: req.user.customerId
+
         });
 
     res.status(201).json({
@@ -48,8 +51,20 @@ exports.getProducts = async (req, res) => {
 
 try {
 
+    if(req.user.role === "super_admin"){
+
+        return res.status(403).json({
+            success:false,
+            message:"Super Admin cannot access customer products"
+        });
+
+    }
+
     const products =
-        await Product.find();
+        await Product.find({
+            customerId: req.user.customerId,
+            isActive: true
+        });
 
     res.status(200).json({
         success: true,
@@ -74,7 +89,18 @@ exports.deleteProduct = async (req, res) => {
         const { id } = req.params;
 
         const product =
-            await Product.findByIdAndDelete(id);
+            await Product.findOneAndUpdate(
+                {
+                    _id:id,
+                    customerId:req.user.customerId
+                },
+                {
+                    isActive:false
+                },
+                {
+                     new:true
+                }
+            );
 
         if (!product) {
 
@@ -108,10 +134,16 @@ exports.updateProduct = async (req, res) => {
         const { id } = req.params;
 
         const product =
-        await Product.findByIdAndUpdate(
-            id,
+        await Product.findOneAndUpdate(
+            {
+                _id:id,
+                customerId:req.user.customerId,
+                isActive:true
+            },
             req.body,
-            { new: true }
+            {
+                new:true
+            }
         );
 
         if(!product){
@@ -143,8 +175,20 @@ exports.getProductStats = async (req, res) => {
 
     try {
 
+        if(req.user.role !== "customer_admin"){
+
+             return res.status(403).json({
+                success:false,
+                message:"Access Denied"
+            });
+
+        }
+
         const products =
-        await Product.find();
+        await Product.find({
+            customerId:req.user.customerId,
+            isActive:true
+        });
 
         const totalProducts =
         products.length;
