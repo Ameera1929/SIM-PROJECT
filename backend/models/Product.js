@@ -31,7 +31,17 @@ quantity: {
 
 description: {
     type: String
-}
+},
+
+customerId: {
+    type: String,
+    default: null
+},
+
+isActive: {
+    type: Boolean,
+    default: true
+},
 
 
 },
