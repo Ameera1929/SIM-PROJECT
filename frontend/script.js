@@ -353,6 +353,19 @@ const welcome =
     document.getElementById("welcome");
 
 const token = localStorage.getItem("token");
+const statsSection =
+    document.getElementById("statsSection");
+
+const currentUser =
+    JSON.parse(localStorage.getItem("user"));
+
+if (
+    statsSection &&
+    currentUser &&
+    currentUser.role !== "customer_admin"
+) {
+    statsSection.style.display = "none";
+}
 
 if (
     window.location.pathname.includes("dashboard.html")
@@ -387,6 +400,8 @@ if (welcome) {
 
 }
 
+
+
 function logout() {
 
 
@@ -414,9 +429,6 @@ document.getElementById("showFormBtn");
 
 const productFormContainer =
 document.getElementById("productFormContainer");
-
-const currentUser =
-JSON.parse(localStorage.getItem("user"));
 
 if(
     showFormBtn &&
