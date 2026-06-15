@@ -1,6 +1,6 @@
 # SIM-PROJECT
 
-## Smart Inventory Management System (SIM)
+## Starshiya Inventory Management System (SIM)
 
 A role-based, multi-tenant inventory management system built using Node.js, Express.js, MongoDB, and Vanilla JavaScript. The system allows multiple customers to manage their own inventory independently while enforcing strict access control.
 
