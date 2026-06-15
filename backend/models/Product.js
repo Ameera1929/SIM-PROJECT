@@ -53,6 +53,15 @@ isActive: {
     default: true
 },
 
+deletedBy: {
+    type: String,
+    default: null
+},
+
+deletedAt: {
+    type: Date,
+    default: null
+},
 
 },
 {

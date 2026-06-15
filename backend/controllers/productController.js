@@ -88,34 +88,29 @@ exports.deleteProduct = async (req, res) => {
 
         const { id } = req.params;
 
-        const product =
-            await Product.findOneAndUpdate(
-                {
-                    _id:id,
-                    customerId:req.user.customerId
-                },
-                {
-                    isActive:false
-                },
-                {
-                     new:true
-                }
-            );
+        const product = await Product.findByIdAndUpdate(
+            id,
+            {
+                isActive: false,
+                deletedBy: req.user.username,
+                deletedAt: new Date()
+            },
+            { new: true }
+        );
 
         if (!product) {
-
             return res.status(404).json({
                 success: false,
                 message: "Product not found"
             });
-
-        }
+}
 
         res.status(200).json({
             success: true,
             message: "Product deleted successfully"
         });
 
+        
     } catch (error) {
 
         res.status(500).json({
